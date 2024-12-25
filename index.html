@@ -42,7 +42,7 @@
         </fieldset>
       </form>
 
-      <button id="but" onclick="show()">Know Catagories</button>
+      <button id="but" onclick="show()">Know about catagories</button>
         <div style="display: none;" id="list">
 
             <div class="categories">
@@ -133,17 +133,16 @@
         </div>
 
     </div>
-    <div>
+    <div id="expense-summary">
         <h3 align="center" style="margin: 15px;">Expense Summary</h3>
         <div id="chart">
             <div class ="pie">
                 <canvas id="expensePieChart" style="display: block;box-sizing: border-box;height: 500px;width: 500px;"></canvas>
-                
             </div>
             <div class ="bar">
                 <canvas id="expenseBarChart" style="display: block;box-sizing: border-box;height: 500px;width: 500px;" ></canvas>
             </div> 
-    </div>
+        </div>
     </div>
     <script src="js.js"></script>
   </body>

@@ -16,8 +16,9 @@ function show() {
 
     
       let expenses = [];
+      
+      
 
-      // Get the form and chart elements
       const expenseForm = document.getElementById('expenseForm');
       const expenseInput = document.getElementById('expense');
       const typeSelect = document.getElementById('type');
@@ -25,7 +26,7 @@ function show() {
       const expenseBarChartCanvas = document.getElementById('expenseBarChart').getContext('2d');
 
       
-      // Initialize the Pie Chart
+     
       let expensePieChart = new Chart(expensePieChartCanvas, {
         type: 'pie',
         data: {
@@ -61,7 +62,7 @@ function show() {
         }
       });
 
-      // Initialize the Bar Chart
+     
       let expenseBarChart = new Chart(expenseBarChartCanvas, {
         type: 'bar',
         data: {
@@ -102,50 +103,52 @@ function show() {
         }
       });
 
-      // Function to update both Pie and Bar charts
+     
       function updateCharts() {
-        // Count the expenses by category
+        
         const categoryCounts = {};
         expenses.forEach(expense => {
           categoryCounts[expense.type] = (categoryCounts[expense.type] || 0) + expense.amount;
         });
 
-        // Prepare data for Pie and Bar charts
+        
         const labels = Object.keys(categoryCounts);
         const data = Object.values(categoryCounts);
 
-        // Update Pie Chart
+       
         expensePieChart.data.labels = labels;
         expensePieChart.data.datasets[0].data = data;
         expensePieChart.update();
 
-        // Update Bar Chart
+        
         expenseBarChart.data.labels = labels;
         expenseBarChart.data.datasets[0].data = data;
         expenseBarChart.update();
       }
 
-      // Handle form submission
+    
       expenseForm.addEventListener('submit', function(event) {
         event.preventDefault();
+
+        
 
         const expenseAmount = parseFloat(expenseInput.value);
         const expenseCategory = typeSelect.value;
 
         if (expenseAmount <= 0) {
           alert('Expense amount must be greater than zero.');
-          return; // Exit the function if the amount is invalid
+          return; 
         }
         
         if (expenseAmount && expenseCategory) {
-          // Save the expense data
+          
           expenses.push({ amount: expenseAmount, type: expenseCategory });
 
-          // Clear the form inputs
+        
           expenseInput.value = '';
           typeSelect.value = '';
-
-          // Update the charts with the new data
+          document.getElementById('expense-summary').style.display="block";
+         
           updateCharts();
         } else {
           alert('Please fill in both the expense amount and category.');
