@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <h1 align="center" id="head">Expense Tracker</h1>
+    <hr>
+    
+    <div id="form">
+      <form id="expenseForm" align="center">
+        <fieldset>
+          <h3 id="fhead">Expense Form</h3>
+         <div id="formin"> 
+          <div id="fornin1">
+            <label for="expense" align="left">Expense Amount:</label>
+            <input type="number" id="expense" name="expense" placeholder="Enter the Expense" required>
+          </div>
+          <div id="fornin1">
+            <label for="type" align="left">Expense Category:</label>
+            <select name="type" id="type" required>
+              <option value="">Select Category</option>
+              <option value="Food">Food</option>
+              <option value="Travel">Travel</option>
+              <option value="Health">Health</option>
+              <option value="Utilities">Utilities</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Education">Education</option>
+              <option value="Personal">Personal</option>
+              <option value="Outfit">Outfit</option>
+            </select>
+          </div>
+         
+        </div>
+          
+
+          <button type="submit">Submit</button>
+        </fieldset>
+      </form>
+
+      <button id="but" onclick="show()">Know Catagories</button>
+        <div style="display: none;" id="list">
+
+            <div class="categories">
+                <div class="category">
+                    <h2>Food</h2>
+                    <ul>
+                        <li>Groceries</li>
+                        <li>Restaurants</li>
+                        <li>Pet food</li>
+                    </ul>
+                </div>
+                <div class="category">
+                    <h2>Travel</h2>
+                    <ul>
+                        <li>Public Transport</li>
+                        <li>Vehicle payment</li>
+                        <li>Vehicle warranty</li>
+                        <li>Vehicle Maintenance</li>
+                        <li>Fuel</li>
+                        </ul>
+                </div>
+                <div class="category">
+                    <h2>Health/Medical</h2>
+                    <ul>
+                        <li>Primary care</li>
+                        <li>Dental care</li>
+                        <li>Specialty care</li>
+                        <li>Urgent care</li>
+                        <li>Medications</li>
+                        <li>Medical devices</li>
+                    </ul>
+                </div>
+                <div class="category">
+                    <h2>Utilities</h2>
+                    <ul>
+                        <li>Household supplies</li>
+                        <li>Electricity</li>
+                        <li>Water</li>
+                        <li>Garbage</li>
+                        <li>Phones</li>
+                        <li>Cable</li>
+                        <li>Internet</li>
+                    </ul>
+                </div>
+                <div class="category">
+                    <h2>Education</h2>
+                    <ul>
+                        <li>Children’s college</li>
+                        <li>Your college</li>
+                        <li>School supplies</li>
+                        <li>Books</li>
+                    </ul>
+                </div>
+                
+                <div class="category">
+                    <h2>Personal</h2>
+                    <ul>
+                        <li>Gym memberships</li>
+                        <li>Haircuts</li>
+                        <li>Salon services</li>
+                        <li>Cosmetics</li>
+                        <li>Babysitter</li>
+                        <li>Subscriptions</li>
+                    </ul>
+                </div>
+            
+                <div class="category">
+                    <h2>Entertainment</h2>
+                    <ul>
+                        <li>Games</li>
+                        <li>Movies</li>
+                        <li>Concerts</li>
+                        <li>Vacations</li>
+                        <li>Subscriptions</li>
+                        <li>Others</li>
+                    </ul>
+                </div>
+                <div class="category">
+                    <h2>Outfit</h2>
+                    <ul>
+                        <li>Adults’ clothing</li>
+                        <li>Adults’ shoes</li>
+                        <li>Children’s clothing</li>
+                        <li>Children’s shoes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div>
+        <h3 align="center" style="margin: 15px;">Expense Summary</h3>
+        <div id="chart">
+            <div class ="pie">
+                <canvas id="expensePieChart" style="display: block;box-sizing: border-box;height: 500px;width: 500px;"></canvas>
+                
+            </div>
+            <div class ="bar">
+                <canvas id="expenseBarChart" style="display: block;box-sizing: border-box;height: 500px;width: 500px;" ></canvas>
+            </div> 
+    </div>
+    </div>
+    <script src="js.js"></script>
+  </body>
+</html>
